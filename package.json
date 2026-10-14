@@ -1,0 +1,13 @@
+{
+  "name": "nimbo-login",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev.mjs",
+    "frontend": "node frontend-server.mjs",
+    "backend": "node server.mjs",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=22.13.0" }
+}

@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+echo "Ejecutando las pruebas de login antes del commit..."
+node --test

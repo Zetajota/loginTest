@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta name="description" content="Accede a tu espacio de trabajo." />
+    <title>Iniciar sesión · Nimbo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="login-card" aria-labelledby="page-title">
+        <a class="brand" href="#" aria-label="Nimbo, inicio">
+          <span class="brand-mark" aria-hidden="true">n</span>
+          <span>nimbo</span>
+        </a>
+
+        <div class="intro" id="intro">
+          <p class="eyebrow">TU ESPACIO DE TRABAJO</p>
+          <h1 id="page-title">Qué bueno verte.</h1>
+          <p class="subtitle">Inicia sesión para continuar donde lo dejaste.</p>
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="username" placeholder="tu@correo.com" required aria-describedby="email-error" />
+            <p class="field-error" id="email-error" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Contraseña</label>
+            </div>
+            <div class="password-wrap">
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Escribe tu contraseña" required aria-describedby="password-error" />
+              <button class="show-password" type="button" aria-label="Mostrar contraseña" aria-controls="password" aria-pressed="false">Mostrar</button>
+            </div>
+            <p class="field-error" id="password-error" aria-live="polite"></p>
+          </div>
+
+          <label class="remember"><input id="remember" name="remember" type="checkbox" /><span class="checkmark" aria-hidden="true"></span><span>Mantener mi sesión iniciada</span></label>
+          <button class="submit-button" type="submit"><span>Iniciar sesión</span><span aria-hidden="true">→</span></button>
+          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <form id="register-form" class="hidden" novalidate>
+          <div class="field"><label for="register-name">Nombre</label><input id="register-name" name="name" autocomplete="name" placeholder="Tu nombre" required /><p class="field-error" id="name-error" aria-live="polite"></p></div>
+          <div class="field"><label for="register-email">Correo electrónico</label><input id="register-email" name="email" type="email" autocomplete="email" placeholder="tu@correo.com" required /><p class="field-error" id="register-email-error" aria-live="polite"></p></div>
+          <div class="field"><label for="register-password">Contraseña</label><div class="password-wrap"><input id="register-password" name="password" type="password" autocomplete="new-password" placeholder="Al menos 8 caracteres" required aria-describedby="register-password-error" /><button class="show-password" type="button" aria-label="Mostrar contraseña" aria-controls="register-password" aria-pressed="false">Mostrar</button></div><p class="field-error" id="register-password-error" aria-live="polite"></p></div>
+          <button class="submit-button" type="submit"><span>Crear cuenta</span><span aria-hidden="true">→</span></button>
+          <p class="form-message" id="register-message" role="status" aria-live="polite"></p>
+        </form>
+
+        <section id="account-view" class="hidden" aria-live="polite"><p class="account-greeting" id="account-greeting"></p><p class="subtitle">Tu sesión está activa.</p><p class="form-message error" id="logout-message" role="status" aria-live="polite"></p><button class="submit-button logout-button" id="logout-button" type="button"><span>Cerrar sesión</span><span aria-hidden="true">↗</span></button></section>
+
+        <p class="signup" id="signup-prompt">¿Aún no tienes una cuenta? <a class="text-link" id="show-register" href="#registro">Crear cuenta</a></p>
+        <p class="signup hidden" id="login-prompt">¿Ya tienes una cuenta? <a class="text-link" id="show-login" href="#login">Iniciar sesión</a></p>
+      </section>
+      <aside class="visual-panel" aria-label="Tu trabajo, en calma">
+        <div class="sun-orbit orbit-one"></div><div class="sun-orbit orbit-two"></div>
+        <div class="sun"></div>
+        <div class="panel-copy"><span class="panel-tag">UN LUGAR PARA ENFOCARTE</span><p>Menos ruido.<br /><em>Más espacio</em><br />para lo que importa.</p></div>
+        <div class="panel-footer"><span>Hecho para tu día a día</span><span class="panel-dot">●</span></div>
+      </aside>
+    </main>
+    <footer class="page-footer"><span>© 2026 Nimbo</span><a href="#privacidad">Privacidad</a><a href="#ayuda">Ayuda</a></footer>
+  </body>
+</html>

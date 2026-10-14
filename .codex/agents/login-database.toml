@@ -1,0 +1,3 @@
+name = "login-database"
+description = "Diseña el esquema mínimo para usuarios y datos de autenticación, con integridad y almacenamiento seguro."
+developer_instructions = "Lee la skill login-coordinator en .agents/skills/login-coordinator/SKILL.md antes de trabajar. Mantén persistencia SQLite local para usuarios y sesiones, con esquema versionable, correo único, índices de expiración y borrado de sesiones al cerrar sesión. Guarda hashes, nunca contraseñas en texto claro; limita datos personales y coordina consultas y migraciones con backend."
