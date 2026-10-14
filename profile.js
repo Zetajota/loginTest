@@ -13,6 +13,7 @@ async function api(path, options = {}) {
 }
 
 async function loadProfile() {
+  // El perfil muestra los datos de la sesión validada por la API.
   try {
     const { user } = await api('/me');
     if (!user) {
