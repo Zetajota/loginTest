@@ -42,6 +42,3 @@ $('#profile-logout').addEventListener('click', async (event) => {
 });
 
 loadProfile();
-
-// CI catches this temporary profile script syntax error on the first push.
-const temporaryBrokenProfile = ;

@@ -1,0 +1,19 @@
+{
+  "description": "Bloquea los intentos del agente de hacer push si falla la suite o la sintaxis del perfil.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|exec_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node hooks/pre_push.mjs",
+            "commandWindows": "node hooks/pre_push.mjs",
+            "timeout": 60,
+            "statusMessage": "Validando pruebas antes del push"
+          }
+        ]
+      }
+    ]
+  }
+}

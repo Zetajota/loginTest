@@ -22,6 +22,8 @@ Ejecuta las cinco pruebas de integración de la API con `npm.cmd test` en PowerS
 
 Para activar el hook local que bloquea commits si alguna prueba falla, ejecuta una vez `git config core.hooksPath .githooks`. El hook usa `node --test` y no requiere dependencias adicionales.
 
+Codex carga el hook de agente desde `.codex/hooks.json`. Antes de usarlo, revisa y confía la definición nueva con `/hooks`. Cuando el agente vaya a ejecutar un comando `git push`, valida las cinco pruebas y la sintaxis de `profile.js`; si alguna falla, bloquea el push y muestra el resultado.
+
 La autenticación está pensada para desarrollo local. Para exponerla en internet se necesita HTTPS, protección de fuerza bruta, política de despliegue y configuración segura de cookies y orígenes.
 
 ## Agentes y skill
