@@ -21,3 +21,5 @@ jobs:
         run: node --check profile.js
       - name: Ejecutar cinco pruebas de autenticación
         run: npm test
+      - name: Fallar intencionalmente para probar alertas
+        run: exit 1
