@@ -17,5 +17,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
+      - name: Validar sintaxis de la pantalla de perfil
+        run: node --check profile.js
       - name: Ejecutar cinco pruebas de autenticación
         run: npm test

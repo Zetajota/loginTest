@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f7fb" />
+    <meta name="description" content="Tu perfil de Nimbo." />
+    <title>Mi perfil · Nimbo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="profile.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="login-card profile-card" aria-labelledby="profile-title">
+        <a class="brand" href="/" aria-label="Nimbo, inicio">
+          <span class="brand-mark" aria-hidden="true">n</span>
+          <span>nimbo</span>
+        </a>
+        <div class="intro">
+          <p class="eyebrow">TU ESPACIO DE TRABAJO</p>
+          <h1 id="profile-title">Mi perfil.</h1>
+          <p class="subtitle">Estos son los datos de tu cuenta.</p>
+        </div>
+        <dl class="profile-details" aria-live="polite">
+          <div class="profile-avatar" id="profile-avatar" aria-hidden="true">N</div>
+          <div class="profile-field"><dt>Nombre</dt><dd id="profile-name">Cargando…</dd></div>
+          <div class="profile-field"><dt>Correo electrónico</dt><dd id="profile-email">Cargando…</dd></div>
+        </dl>
+        <p class="form-message error" id="profile-message" role="status" aria-live="polite"></p>
+        <a class="submit-button profile-back" href="/"><span>Volver a mi cuenta</span><span aria-hidden="true">←</span></a>
+        <button class="submit-button logout-button" id="profile-logout" type="button"><span>Cerrar sesión</span><span aria-hidden="true">↗</span></button>
+      </section>
+      <aside class="visual-panel" aria-label="Tu trabajo, en calma">
+        <div class="sun-orbit orbit-one"></div><div class="sun-orbit orbit-two"></div><div class="sun"></div>
+        <div class="panel-copy"><span class="panel-tag">UN LUGAR PARA ENFOCARTE</span><p>Menos ruido.<br /><em>Más espacio</em><br />para lo que importa.</p></div>
+        <div class="panel-footer"><span>Hecho para tu día a día</span><span class="panel-dot">●</span></div>
+      </aside>
+    </main>
+    <footer class="page-footer"><span>© 2026 Nimbo</span><a href="#privacidad">Privacidad</a><a href="#ayuda">Ayuda</a></footer>
+  </body>
+</html>

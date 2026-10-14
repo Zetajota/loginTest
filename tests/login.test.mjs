@@ -8,6 +8,8 @@ import { createServer } from 'node:net';
 
 let processHandle;
 let baseUrl;
+let frontendHandle;
+let frontendUrl;
 let tempDir;
 
 async function freePort() {
@@ -35,9 +37,16 @@ before(async () => {
   tempDir = await mkdtemp(join(tmpdir(), 'nimbo-tests-'));
   const port = await freePort();
   baseUrl = `http://127.0.0.1:${port}`;
+  const frontendPort = await freePort();
+  frontendUrl = `http://127.0.0.1:${frontendPort}`;
   processHandle = spawn(process.execPath, ['server.mjs'], {
     cwd: new URL('..', import.meta.url),
     env: { ...process.env, BACKEND_PORT: String(port), DB_PATH: join(tempDir, 'users.sqlite'), FRONTEND_ORIGIN: 'http://localhost:5173' },
+    stdio: 'ignore',
+  });
+  frontendHandle = spawn(process.execPath, ['frontend-server.mjs'], {
+    cwd: new URL('..', import.meta.url),
+    env: { ...process.env, FRONTEND_PORT: String(frontendPort) },
     stdio: 'ignore',
   });
   for (let attempt = 0; attempt < 60; attempt += 1) {
@@ -51,17 +60,19 @@ before(async () => {
 });
 
 after(async () => {
-  if (processHandle && processHandle.exitCode === null) {
-    processHandle.kill('SIGTERM');
-    await new Promise((resolve) => processHandle.once('exit', resolve));
-  }
+  await Promise.all([processHandle, frontendHandle].filter((child) => child?.exitCode === null).map((child) => new Promise((resolve) => { child.once('exit', resolve); child.kill('SIGTERM'); })));
   if (tempDir) await rm(tempDir, { recursive: true, force: true });
 });
 
-test('1. La API informa estado saludable y SQLite', async () => {
+test('1. La API está saludable y la pantalla de perfil se sirve por HTTP', async () => {
   const { response, body } = await request('/health');
   assert.equal(response.status, 200);
   assert.deepEqual(body, { status: 'ok', database: 'sqlite' });
+  const profile = await fetch(`${frontendUrl}/profile.html`);
+  assert.equal(profile.status, 200);
+  const html = await profile.text();
+  assert.match(html, /Mi perfil/);
+  assert.match(html, /profile\.js/);
 });
 
 test('2. Rechaza datos de registro inválidos', async () => {
