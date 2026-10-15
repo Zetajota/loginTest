@@ -41,3 +41,4 @@ $login-coordinator Crea o termina el login funcional en este proyecto. Usa los t
 ```
 
 También puedes usar `$login-coordinator` para pedir cambios concretos, por ejemplo: `agrega recuperación de contraseña al login`. La skill vive en el proyecto, por lo que Codex debe tener abierta esta carpeta y sus instrucciones habilitadas. Si no aparece en el selector, abre de nuevo la carpeta o reinicia la sesión de Codex para que vuelva a descubrir la skill y los perfiles de agentes.
+--- 
