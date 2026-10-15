@@ -3,12 +3,12 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash|exec_command",
+        "matcher": "Bash",
         "hooks": [
           {
             "type": "command",
-            "command": "node hooks/pre_push.mjs",
-            "commandWindows": "node hooks/pre_push.mjs",
+            "command": "node \"$(git rev-parse --show-toplevel)/hooks/pre_push.mjs\"",
+            "commandWindows": "node \"$(git rev-parse --show-toplevel)/hooks/pre_push.mjs\"",
             "timeout": 60,
             "statusMessage": "Validando pruebas antes del push"
           }
